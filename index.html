@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://kit.fontawesome.com/8fcf490b76.js" crossorigin="anonymous"></script>
+	<title></title>
+	<style type="text/css">
+	body{
+		background-image: url(https://images3.alphacoders.com/595/595064.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 170%;
+		}
+	#submit{
+		background-color: blue;
+		color: white;
+	}
+	.listtype{
+		list-style: none;
+	}
+	.listvalue{
+		color: white;
+	}
+	</style>
+</head>
+<body>
+	<input placeholder="Enter a todo" id="new"/>
+	<ul>
+		
+	</ul>
+	<button id="submit" onclick="todo()">submit</button>
+	<script type="text/javascript">
+		function todo(){
+			let newTodo=document.getElementById("new").value,todoList=[]
+			if(newTodo===""){
+				alert("Enter a todo value")
+			}
+			else{
+				add(newTodo)
+			}
+			//console.log(newTodo)
+			console.log(todoList);
+			document.getElementById("new").value=""
+		}
+		function add(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li");
+			li.innerHTML=`
+				<span class="listvalue">${newValue}</span>
+				<i class="fa-solid fa-square-xmark"></i> 
+			`
+			li.classList.add("listtype")
+			ul.appendChild(li)
+		}
+	</script>
+</body>
+</html>
